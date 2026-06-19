@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Rashid Nawaz — SEO Expert & WordPress Developer</title>
+<meta name="description" content="5+ years optimizing on-page, off-page, technical and local SEO, plus WordPress development and cloud stacking. Open for new Upwork contracts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A0E17;
+    --ink-soft:#121829;
+    --ink-card:#161D31;
+    --paper:#ECEEE5;
+    --paper-card:#FFFFFF;
+    --rank-green:#1B7A4D;
+    --rank-green-bright:#2FAE71;
+    --gold:#C98A2B;
+    --text-dark:#1B2030;
+    --text-muted-dark:#5B6275;
+    --text-light:#E9ECE4;
+    --muted-light:#8A92A6;
+    --line-dark:rgba(233,236,228,0.12);
+    --line-light:rgba(27,32,48,0.12);
+    --serp-blue:#5B8DEF;
+    --max:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text-dark);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .serif{font-family:'Fraunces',serif;}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--rank-green-bright);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:18px;height:1px;
+    background:var(--rank-green-bright);
+    display:inline-block;
+  }
+  .eyebrow.on-light{color:var(--rank-green);}
+  .eyebrow.on-light::before{background:var(--rank-green);}
+
+  /* ===== NAV ===== */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,14,23,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav-inner{
+    max-width:var(--max);margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;
+  }
+  .brand{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--text-light);
+    font-size:14px;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  .brand span{color:var(--rank-green-bright);}
+  .nav-links{
+    display:flex;gap:24px;
+    overflow-x:auto;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.03em;
+    color:var(--muted-light);
+    scrollbar-width:none;
+  }
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-links a{white-space:nowrap;transition:color .2s ease;}
+  .nav-links a:hover{color:var(--rank-green-bright);}
+  .nav-cta{
+    flex-shrink:0;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--ink);
+    background:var(--rank-green-bright);
+    padding:9px 16px;
+    border-radius:3px;
+    white-space:nowrap;
+    transition:filter .2s ease;
+  }
+  .nav-cta:hover{filter:brightness(1.1);}
+
+  /* ===== HERO ===== */
+  header.hero{
+    background:
+      linear-gradient(180deg, rgba(10,14,23,0) 60%, var(--ink) 100%),
+      repeating-linear-gradient(90deg, rgba(233,236,228,0.035) 0px, rgba(233,236,228,0.035) 1px, transparent 1px, transparent 64px),
+      var(--ink);
+    color:var(--text-light);
+    padding:72px 0 88px;
+  }
+  .hero-top{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    flex-wrap:wrap;gap:24px;margin-bottom:36px;
+  }
+  .hero-top p{
+    max-width:380px;
+    color:var(--muted-light);
+    font-size:13px;
+    line-height:1.6;
+    margin:10px 0 0;
+  }
+
+  .search-shell{
+    background:var(--ink-soft);
+    border:1px solid var(--line-dark);
+    border-radius:28px;
+    padding:14px 22px;
+    display:flex;align-items:center;gap:12px;
+    max-width:560px;
+    margin-bottom:34px;
+  }
+  .search-shell svg{flex-shrink:0;opacity:.5;}
+  .search-text{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:14px;
+    color:var(--text-light);
+    white-space:nowrap;
+    overflow:hidden;
+    border-right:2px solid var(--rank-green-bright);
+    animation:blink-caret 1s step-end infinite;
+  }
+  @keyframes blink-caret{
+    0%,100%{border-color:var(--rank-green-bright);}
+    50%{border-color:transparent;}
+  }
+
+  .serp-result{padding-left:4px;border-left:2px solid var(--line-dark);}
+  .serp-breadcrumb{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--rank-green-bright);
+    display:flex;align-items:center;gap:8px;
+    margin-bottom:6px;
+  }
+  .serp-breadcrumb .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--rank-green-bright);
+    display:inline-block;
+  }
+  h1.serp-title{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(32px,5vw,52px);
+    line-height:1.08;
+    margin:0 0 18px;
+    color:var(--text-light);
+    max-width:780px;
+  }
+  .serp-meta{
+    color:var(--muted-light);
+    font-size:16px;
+    line-height:1.7;
+    max-width:640px;
+    margin:0 0 30px;
+  }
+  .serp-meta strong{color:var(--text-light);font-weight:600;}
+
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
+  .btn-primary, .btn-secondary{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    padding:13px 22px;
+    border-radius:3px;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .2s ease, filter .2s ease, background .2s ease;
+  }
+  .btn-primary{background:var(--rank-green-bright);color:var(--ink);font-weight:600;}
+  .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.08);}
+  .btn-secondary{border:1px solid var(--line-dark);color:var(--text-light);}
+  .btn-secondary:hover{border-color:var(--rank-green-bright);color:var(--rank-green-bright);}
+
+  .stat-row{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line-dark);
+    padding-top:28px;
+    gap:18px;
+  }
+  .stat{display:flex;flex-direction:column;gap:4px;}
+  .stat .num{font-family:'Fraunces',serif;font-size:28px;color:var(--text-light);font-weight:600;}
+  .stat .lbl{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-light);}
+
+  /* ===== SECTION SHELL ===== */
+  section{padding:96px 0;}
+  .section-head{max-width:620px;margin-bottom:54px;}
+  .section-head h2{
+    font-family:'Fraunces',serif;
+    font-size:clamp(26px,3.4vw,38px);
+    font-weight:600;
+    margin:14px 0 0;
+    line-height:1.15;
+  }
+  .fade-up{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+  .fade-up.in{opacity:1;transform:translateY(0);}
+
+  /* ===== SERVICES ===== */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line-light);
+    border:1px solid var(--line-light);
+  }
+  .service-card{
+    background:var(--paper-card);
+    padding:30px 26px;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .service-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--rank-green);
+    display:inline-flex;align-items:center;gap:6px;
+    width:fit-content;
+    background:rgba(27,122,77,0.08);
+    padding:4px 9px;border-radius:20px;
+  }
+  .service-card h3{
+    font-family:'Fraunces',serif;
+    font-size:19px;font-weight:600;margin:0;
+  }
+  .service-card p{
+    font-size:14px;line-height:1.65;color:var(--text-muted-dark);margin:0;
+  }
+
+  /* ===== ABOUT / KNOWLEDGE PANEL ===== */
+  .about{background:var(--ink);color:var(--text-light);}
+  .about-grid{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:start;
+  }
+  .about-copy p{font-size:16px;line-height:1.85;color:var(--muted-light);margin:0 0 18px;}
+  .about-copy p strong{color:var(--text-light);}
+  .about-list{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:10px;}
+  .about-list li{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted-light);
+    display:flex;gap:10px;align-items:baseline;
+  }
+  .about-list li::before{content:"›";color:var(--rank-green-bright);}
+
+  .kp-card{
+    background:var(--ink-card);
+    border:1px solid var(--line-dark);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .kp-img{width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--ink-soft);}
+  .kp-body{padding:24px 26px 28px;}
+  .kp-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-light);margin-bottom:8px;}
+  .kp-body h3{font-family:'Fraunces',serif;font-size:22px;margin:0 0 4px;}
+  .kp-role{font-size:13px;color:var(--rank-green-bright);font-family:'IBM Plex Mono',monospace;margin-bottom:18px;}
+  .kp-facts{list-style:none;padding:14px 0 0;margin:0;border-top:1px solid var(--line-dark);display:grid;gap:11px;}
+  .kp-facts li{display:flex;justify-content:space-between;font-size:12.5px;}
+  .kp-facts li span:first-child{color:var(--muted-light);font-family:'IBM Plex Mono',monospace;}
+  .kp-facts li span:last-child{color:var(--text-light);font-weight:500;text-align:right;}
+
+  /* ===== CERTIFICATIONS ===== */
+  .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .cert-card{
+    background:var(--paper-card);
+    border:1px solid var(--line-light);
+    border-radius:10px;
+    padding:26px;
+    position:relative;
+  }
+  .cert-stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:14px;}
+  .cert-card h3{font-family:'Fraunces',serif;font-size:17px;line-height:1.35;margin:0 0 8px;}
+  .cert-issuer{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--rank-green);text-transform:uppercase;letter-spacing:.04em;}
+  .cert-verified{
+    position:absolute;top:22px;right:22px;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--rank-green);
+    display:flex;align-items:center;gap:5px;
+  }
+  .cert-verified .dot{width:6px;height:6px;border-radius:50%;background:var(--rank-green);}
+
+  /* ===== CITATIONS / PROFILES ===== */
+  .citations{background:var(--ink);color:var(--text-light);}
+  .citations .section-head h2{color:var(--text-light);}
+  .audit-meta{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted-light);
+    display:flex;gap:24px;flex-wrap:wrap;margin-top:14px;
+  }
+  .audit-meta b{color:var(--rank-green-bright);}
+  .citation-list{
+    border-top:1px solid var(--line-dark);
+    margin-top:8px;
+  }
+  .citation-row{
+    display:grid;
+    grid-template-columns:28px 1fr auto auto;
+    align-items:center;
+    gap:18px;
+    padding:16px 4px;
+    border-bottom:1px solid var(--line-dark);
+    transition:background .2s ease;
+  }
+  .citation-row:hover{background:rgba(233,236,228,0.03);}
+  .citation-row .idx{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted-light);}
+  .citation-row .platform{font-family:'Fraunces',serif;font-size:17px;font-weight:500;}
+  .citation-row .cat{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--muted-light);
+    letter-spacing:.05em;text-transform:uppercase;
+    display:none;
+  }
+  .citation-row .status{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--rank-green-bright);
+    display:flex;align-items:center;gap:6px;white-space:nowrap;
+  }
+  .citation-row .status .dot{width:6px;height:6px;border-radius:50%;background:var(--rank-green-bright);}
+  .citation-row .go{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted-light);
+    transition:color .2s ease, transform .2s ease;
+  }
+  .citation-row:hover .go{color:var(--rank-green-bright);transform:translateX(3px);}
+
+  /* ===== CTA / FOOTER ===== */
+  footer{padding:96px 0 56px;}
+  .meta-tag{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--text-muted-dark);
+    margin-bottom:18px;
+  }
+  .meta-tag span{color:var(--rank-green);}
+  footer h2{
+    font-family:'Fraunces',serif;font-size:clamp(30px,4.6vw,52px);font-weight:600;
+    max-width:680px;line-height:1.1;margin:0 0 30px;
+  }
+  .footer-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px;}
+  .footer-ctas a{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;padding:14px 24px;
+    border-radius:3px;display:inline-flex;align-items:center;gap:8px;
+    transition:transform .2s ease, filter .2s ease;
+  }
+  .footer-ctas a.primary{background:var(--ink);color:var(--text-light);}
+  .footer-ctas a.primary:hover{transform:translateY(-2px);}
+  .footer-ctas a.secondary{border:1px solid var(--line-light);color:var(--text-dark);}
+  .footer-ctas a.secondary:hover{border-color:var(--rank-green);color:var(--rank-green);}
+
+  .footer-bottom{
+    border-top:1px solid var(--line-light);
+    padding-top:26px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+  }
+  .footer-bottom p{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-muted-dark);margin:0;}
+  .footer-socials{display:flex;gap:16px;flex-wrap:wrap;}
+  .footer-socials a{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--text-muted-dark);transition:color .2s ease;}
+  .footer-socials a:hover{color:var(--rank-green);}
+
+  @media (max-width:880px){
+    .about-grid{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .cert-grid{grid-template-columns:1fr;}
+    .stat-row{grid-template-columns:repeat(2,1fr);row-gap:24px;}
+    .citation-row{grid-template-columns:22px 1fr auto;}
+    .citation-row .cat{display:none;}
+  }
+  @media (max-width:560px){
+    .services-grid{grid-template-columns:1fr;}
+    .search-text{font-size:12px;}
+    .hero-top p{display:none;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand">M<span>RN</span> / seo-expert</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#profiles">Profiles</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="https://www.upwork.com/freelancers/~0106f67fdc762861d0" target="_blank" rel="noopener">Hire on Upwork →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="eyebrow">Google search — simulated result</div>
+      <p>This page is built like a search result on purpose — ranking is the whole job.</p>
+    </div>
+
+    <div class="search-shell">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span class="search-text mono">seo expert + wordpress developer</span>
+    </div>
+
+    <div class="serp-result">
+      <div class="serp-breadcrumb"><span class="dot"></span> seowithrashid.github.io › about</div>
+      <h1 class="serp-title">Muhammad Rashid Nawaz<br>SEO Expert &amp; WordPress Developer</h1>
+      <p class="serp-meta"><strong>5+ years</strong> optimizing on-page, off-page, technical and local SEO — plus WordPress development and cloud stacking across Amazon S3, GitHub, GitLab and more. Currently <strong>open for new Upwork contracts</strong>.</p>
+
+      <div class="hero-ctas">
+        <a class="btn-primary" href="https://www.upwork.com/freelancers/~0106f67fdc762861d0" target="_blank" rel="noopener">Hire Me on Upwork →</a>
+        <a class="btn-secondary" href="#certifications">View Certifications</a>
+        <a class="btn-secondary" href="#profiles">See All Profiles</a>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat"><span class="num">5+</span><span class="lbl">Years Experience</span></div>
+      <div class="stat"><span class="num">13</span><span class="lbl">Live Citations</span></div>
+      <div class="stat"><span class="num">03</span><span class="lbl">Certifications</span></div>
+      <div class="stat"><span class="num">06</span><span class="lbl">Core Services</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <div class="eyebrow on-light">Ranking factors I optimize</div>
+      <h2>What I bring to your site</h2>
+    </div>
+
+    <div class="services-grid fade-up">
+      <div class="service-card">
+        <span class="service-tag">✓ Indexed</span>
+        <h3>On-Page SEO</h3>
+        <p>Title tags, meta descriptions, header structure, internal linking and content optimized for real search intent.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">✓ Indexed</span>
+        <h3>Off-Page SEO &amp; Link Building</h3>
+        <p>White-hat outreach and authority-building backlinks that move your domain up the rankings, page by page.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">✓ Indexed</span>
+        <h3>Technical SEO</h3>
+        <p>Crawlability, indexation, schema markup, site speed and Core Web Vitals fixes that clear the path to page one.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">✓ Indexed</span>
+        <h3>Local SEO</h3>
+        <p>Google Business Profile optimization, citation building and map-pack strategy to get nearby customers walking in.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">✓ Indexed</span>
+        <h3>WordPress Development</h3>
+        <p>Custom themes and performance-tuned WordPress builds made to convert visitors, not just to look good.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-tag">✓ Indexed</span>
+        <h3>Cloud Stacking</h3>
+        <p>Authority deployments across Amazon S3, GitHub, GitLab, Backblaze, BitBucket, Netlify, Codeberg and Cloudflare.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy fade-up">
+      <div class="eyebrow">Knowledge panel</div>
+      <h2 class="serif" style="font-size:clamp(26px,3.4vw,38px);font-weight:600;margin:14px 0 26px;color:var(--text-light);">About Rashid</h2>
+      <p>I'm <strong>Muhammad Rashid Nawaz</strong>, a freelance SEO specialist and WordPress developer with <strong>5+ years</strong> of hands-on experience taking client sites from invisible to ranked.</p>
+      <p>My work covers the full stack of search visibility — on-page structure, off-page authority, technical health and local presence — paired with WordPress builds and cloud stacking that give every project a wider footprint across the web.</p>
+      <p>I'm certified through <strong>BrightLocal Academy</strong> and <strong>Semrush Academy</strong>, and I keep an active presence across 13 professional and portfolio platforms — all linked below.</p>
+      <ul class="about-list">
+        <li>On-page, off-page, technical &amp; local SEO</li>
+        <li>WordPress development &amp; performance tuning</li>
+        <li>Cloud stacking across 8 platforms</li>
+        <li>BrightLocal &amp; Semrush certified</li>
+      </ul>
+    </div>
+
+    <div class="kp-card fade-up">
+      <img class="kp-img" src="https://seowithrashid.github.io/images/about-me.png" alt="Muhammad Rashid Nawaz">
+      <div class="kp-body">
+        <div class="kp-eyebrow">Verified profile</div>
+        <h3>Muhammad Rashid Nawaz</h3>
+        <div class="kp-role">SEO Expert · WordPress Developer</div>
+        <ul class="kp-facts">
+          <li><span>Experience</span><span>5+ Years</span></li>
+          <li><span>Based in</span><span>Pakistan</span></li>
+          <li><span>Specialty</span><span>Local SEO</span></li>
+          <li><span>Status</span><span>Open to hire</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <div class="eyebrow on-light">Verified credentials</div>
+      <h2>Certifications</h2>
+    </div>
+
+    <div class="cert-grid fade-up">
+      <div class="cert-card">
+        <div class="cert-verified"><span class="dot"></span>Verified</div>
+        <div class="cert-stars">★★★★★</div>
+        <h3>Local SEO Certified Professional</h3>
+        <div class="cert-issuer">BrightLocal Academy</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-verified"><span class="dot"></span>Verified</div>
+        <div class="cert-stars">★★★★★</div>
+        <h3>Google Business Profile: Eligibility, Verification, Support &amp; Suspensions</h3>
+        <div class="cert-issuer">BrightLocal Academy</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-verified"><span class="dot"></span>Verified</div>
+        <div class="cert-stars">★★★★★</div>
+        <h3>International SEO</h3>
+        <div class="cert-issuer">Semrush Academy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="citations" id="profiles">
+  <div class="wrap">
+    <div class="section-head fade-up">
+      <div class="eyebrow">NAP citation audit</div>
+      <h2>Find me everywhere</h2>
+      <div class="audit-meta">
+        <span>Citations checked: <b>13</b></span>
+        <span>Live: <b>13/13</b></span>
+        <span>Consistency: <b>100%</b></span>
+      </div>
+    </div>
+
+    <div class="citation-list fade-up">
+      <a class="citation-row" href="https://www.upwork.com/freelancers/~0106f67fdc762861d0" target="_blank" rel="noopener">
+        <span class="idx mono">01</span>
+        <span class="platform">Upwork</span>
+        <span class="cat">Marketplace</span>
+        <span class="status"><span class="dot"></span>Live</span>
+        <span class="go">↗</span>
+      </a>
+      <a class="citation-row" href="https://www.fiverr.com/huzaifa_khan565" target="_blank" rel="noopener">
+        <span class="idx mono">02</span>
+        <span class="platform">Fiverr</span>
+        <span class="cat">Marketplace</span>
+        <span class="status"><span class="dot"></span>Live</span>
+        <span class="go">↗</span>
+      </a>
+      <a class="citation-row" href="https://seowithrashid.github.io/" target="_blank" rel="noopener">
+        <span class="idx mono">03</span>
+        <span class="platform">Portfolio Site</span>
+        <span class="cat">Website</span>
+        <span class="status"><span class="dot"></span>Live</span>
+        <span class="go">↗</span>
+      </a>
+      <a class="citation-row" href="https://pk.linkedin.com/in/rashid-nawaz-seo-expert" target="_blank" rel="noopener">
+        <span class="idx mono">04</span>
+        <span class="platform">LinkedIn (PK)</span>
+        <span class="cat">Professional</span>
+        <span class="status"><span class="dot"></span>Live</span>
+        <span class="go">↗</span>
+      </a>
+      <a class="citation-row" href="https://www.linkedin.com/in/m-rashid-nawaz/" target="_blank" rel="noopener">
+        <span class="idx mono">05</span>
+        <span class="platform">LinkedIn (Global)</span>
+        <span class="cat">Professional</span>
+        <span class="status"><span class="dot"></span>Live</span>
+        <span class="go">↗</span>
+      </a>
+      <a class="citation-row" href="https://www.behance.net/muhammadrashidnawaz" target="_blank" rel="noopener">
+        <span class="idx mono">06</span>
+        <span class="platform">Behance</span>
+        <span class="cat">Portfolio</span>
+        <span class="status"><span class="dot"></span>Live</span>
+        <span class="go">↗</span>
+      </a>
+      <a class="citation-row" href="https://dribbble.com/mrashidnawaz" target="_blank" rel="noopener">
+        <span class="idx mono">07</span>
+        <span class="platform">Dribbble</span>
+        <span class="cat">Portfolio</span>
+        <span class="status"><span class="dot"></span>Live</span>
+        <span class="go">↗</span>
+      </a>
+      <a class="citation-row" href="https://www.youtube.com/@RashidMalik-tech" target="_blank" rel="noopener">
+        <span class="idx mono">08</span>
+        <span class="platform">YouTube</span>
+        <span class="cat">Video</span>
+        <span class="status"><span class="dot"></span>Live</span>
+        <span class="go">↗</span>
+      </a>
+      <a class="citation-row" href="https://vimeo.com/mrashidnawaz" target="_blank" rel="noopener">
+        <span class="idx mono">09</span>
+        <span class="platform">Vimeo</span>
+        <span class="cat">Video</span>
+        <span class="status"><span class="dot"></span>Live</span>
+        <span class="go">↗</span>
+      </a>
+      <a class="citation-row" href="https://www.instagram.com/rashidmalik_seo" target="_blank" rel="noopener">
+        <span class="idx mono">10</span>
+        <span class="platform">Instagram</span>
+        <span class="cat">Social</span>
+        <span class="status"><span class="dot"></span>Live</span>
+        <span class="go">↗</span>
+      </a>
+      <a class="citation-row" href="http://facebook.com/mrashidnawazseo" target="_blank" rel="noopener">
+        <span class="idx mono">11</span>
+        <span class="platform">Facebook</span>
+        <span class="cat">Social</span>
+        <span class="status"><span class="dot"></span>Live</span>
+        <span class="go">↗</span>
+      </a>
+      <a class="citation-row" href="https://x.com/RashidMalik_SEO" target="_blank" rel="noopener">
+        <span class="idx mono">12</span>
+        <span class="platform">X (Twitter)</span>
+        <span class="cat">Social</span>
+        <span class="status"><span class="dot"></span>Live</span>
+        <span class="go">↗</span>
+      </a>
+      <a class="citation-row" href="http://pinterest.com/mrashidnawaz_seo" target="_blank" rel="noopener">
+        <span class="idx mono">13</span>
+        <span class="platform">Pinterest</span>
+        <span class="cat">Social</span>
+        <span class="status"><span class="dot"></span>Live</span>
+        <span class="go">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="meta-tag fade-up">&lt;meta name=<span>"hire-me"</span> content=<span>"yes, currently available"</span>&gt;</div>
+    <h2 class="fade-up">Let's get your site<br>ranking on page one.</h2>
+    <div class="footer-ctas fade-up">
+      <a class="primary" href="https://www.upwork.com/freelancers/~0106f67fdc762861d0" target="_blank" rel="noopener">Hire Me on Upwork →</a>
+      <a class="secondary" href="https://www.fiverr.com/huzaifa_khan565" target="_blank" rel="noopener">View Gigs on Fiverr</a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Muhammad Rashid Nawaz — SEO Expert &amp; WordPress Developer</p>
+      <div class="footer-socials">
+        <a href="https://seowithrashid.github.io/" target="_blank" rel="noopener">Portfolio</a>
+        <a href="https://pk.linkedin.com/in/rashid-nawaz-seo-expert" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.behance.net/muhammadrashidnawaz" target="_blank" rel="noopener">Behance</a>
+        <a href="https://www.instagram.com/rashidmalik_seo" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://x.com/RashidMalik_SEO" target="_blank" rel="noopener">X</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:0.12});
+  document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
